@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zetube</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding-top: 20px;
+            background-color: #343434;
+            width: 240px;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+        }
+
+        .content {
+            margin-left: 260px;
+        }
+
+        .sidebar img {
+            margin-left: 30px;
+        }
+
+        .sidebar .list-group-item {
+            border: none;
+            background-color: #343434;
+
+        }
+
+        .sidebar .list-group-item a {
+            color: #ffffff;
+        }
+
+        .sidebar .list-group-item a:hover {
+            background-color: #343434;
+            color: #000000;
+        }
+
+        h5 {
+            font-weight: bold;
+            padding-left: 15px;
+        }
+
+        .form-inline {
+            margin-left: 500px;
+        }
+
+        .btn-outline-secondary {
+            background-color: #343434;
+            color: white;
+        }
+
+        .btn-outline-secondary,
+        .btn-primary {
+            background-color: #343434;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-outline-secondary:hover,
+        .btn-primary:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        .btn-outline-secondary :hover {
+            background-color: #343434;
+        }
+
+        .btn-primary {
+            background-color: #343434;
+            color: white;
+        }
+
+        .btn-primary :hover {
+            background-color: #343434;
+        }
+
+        .btn-danger {
+            margin-right: auto;
+            margin-right: 10px;
+            background-color: #343434;
+        }
+
+        button:hover,
+        .btn-danger :hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        .mt-3 {
+            color: white;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin: 0 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+
+        }
+
+        .button-container button {
+            margin: 10 10px;
+            background-color: #343434;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+            margin-left: 500px;
+        }
+
+        .search-button {
+            z-index: 11;
+            position: relative;
+        }
+
+
+        .search-container input {
+            width: 300px;
+            height: 40px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-button {
+            height: 40px;
+            padding: 0 10px;
+            background-color: #343434;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .search-button i {
+            font-size: 16px;
+        }
+
+        .col-md-4 {
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Zetube</a>
+
+        <div class="search-container">
+            <input type="text" placeholder="Ara...">
+            <button class="search-button"><i class="fa fa-search"></i></button>
+        </div>
+
+        <div class="ml-auto">
+            <button class="btn btn-outline-secondary">
+                <i class="fa fa-bell"></i>
+            </button>
+            <button class="btn btn-primary ml-2">Giriş Yap</button>
+        </div>
+    </nav>
+
+    <div class="sidebar">
+        <h5><img width="150px" src="Ekran görüntüsü_20-10-2024_19739_turbologo.com.jpeg" alt="Zetube"></h5>
+        <h5 class="mt-3" aria-expanded="true" style="cursor: pointer;">
+            Başlangıç
+        </h5>
+        <div id="mainMenu">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="youtube.html">Ana Sayfa</a></li>
+                <li class="list-group-item"><a href="#">Shorts</a></li>
+                <li class="list-group-item"><a href="#">Abonelikler</a></li>
+            </ul>
+        </div>
+
+        <h5 class="mt-3" aria-expanded="true" style="cursor: pointer;">
+            Kişisel
+        </h5>
+        <div id="personalMenu">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">Siz</a></li>
+                <li class="list-group-item"><a href="#">Kanalınız</a></li>
+                <li class="list-group-item"><a href="#">Geçmiş</a></li>
+                <li class="list-group-item"><a href="#">Oynatma listeleri</a></li>
+                <li class="list-group-item"><a href="#">Videolarınız</a></li>
+                <li class="list-group-item"><a href="#">Daha sonra izle</a></li>
+                <li class="list-group-item"><a href="#">Beğendiğim videolar</a></li>
+                <li class="list-group-item"><a href="#">İndirilenler</a></li>
+            </ul>
+        </div>
+
+        <h5 class="mt-3" aria-expanded="true" style="cursor: pointer;">
+            Keşfet
+        </h5>
+        <div id="exploreMenu">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">Trendler</a></li>
+                <li class="list-group-item"><a href="#">Müzik</a></li>
+                <li class="list-group-item"><a href="#">Canlı</a></li>
+                <li class="list-group-item"><a href="#">Oyun</a></li>
+                <li class="list-group-item"><a href="#">Spor</a></li>
+                <li class="list-group-item"><a href="#">Hazır Oyunlar</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="button-container">
+        <button type="button" class="btn btn-danger">Tümü</button>
+        <button type="button" class="btn btn-danger">Müzik</button>
+        <button type="button" class="btn btn-danger">Mix'ler</button>
+        <button type="button" class="btn btn-danger">Canlı</button>
+        <button type="button" class="btn btn-danger">Rap Yapma</button>
+        <button type="button" class="btn btn-danger">Son İzlenenler</button>
+        <button type="button" class="btn btn-danger">Yüklenenler</button>
+        <button type="button" class="btn btn-danger">Favoriler</button>
+        <button type="button" class="btn btn-danger">Playlist</button>
+        <button type="button" class="btn btn-danger">Öneriler</button>
+
+    </div>
+    <div class="content">
+        <div class="container">
+            <br>
+            <h1>Önerilen Videolar</h1>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/fxXGGjVb9TI" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Bergen-Elimde Fotoğrafın</h5>
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Khg_EFRrQAY" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Güllü-Bir Yıl Verdik</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YbI6J338xxw" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Ferdi Tayfur-Sabahçı Kahvesi</h5>
+                </div>
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/sd8TImTiPnw" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Nazan Öncel-Beni Hatırla</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/EQapziZ5sOA" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Bayhan-Açık Yara</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/hFWpsblOzWY" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Güllü-Değmezmiş Sana</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/I4AUujFNxaw" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Zakkum-Yüzük</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/DjSBg3WpxnQ" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Diyar Pala-Uzak Ol</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/uOMmGNtsOks" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Ayaz Erdoğan-Yaktın</h5>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <h3 class="mt-4">Daha Fazla Videolar</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/WgndvlS-MWA" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Nilüfer-İnkar Etme</h5>
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/0CqMHQNW1RM" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Sezen Aksu-Son Bakış</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/9KiFGYTtppk" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Nazan Öncel-Geceler Kara Tren</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ooygpXIRfdM" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Blok3-Aklına Ben Gelicem</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/BYT3jrQJOe8" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Mela Bedel-Ben Sana Gelemem</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/26rvrza_Gmg" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h5>Şebnem Ferah-Mayın Tarlası</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <footer class="bg-dark text-white text-center py-3" style="background-color: #343434;">
+        <p> &copy; 2024 Zetube Sitesi. Tüm haklar saklıdır.</p>
+
+    </footer>
+</body>
+
+</html>
